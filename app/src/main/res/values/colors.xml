@@ -14,4 +14,7 @@
     <color name="content1">#FE0000</color>
     <color name="content2">#FEFE00</color>
     <color name="button2">#00FE00</color>
+    <color name="yellow">#FEAE46</color>
+    <color name="red">#FE0C01</color>
+    <color name="blue">#7863FE</color>
 </resources>
