@@ -10,5 +10,8 @@
     <color name="elem1">#AE52DD</color>
     <color name="elem2">#FE3B30</color>
     <color name="elem3">#FECB00</color>
-    <color name="button">#34C659</color>
+    <color name="button">#34C559</color>
+    <color name="content1">#FE0000</color>
+    <color name="content2">#FEFE00</color>
+    <color name="button2">#00FE00</color>
 </resources>
