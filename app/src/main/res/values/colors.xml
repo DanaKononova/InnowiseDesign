@@ -17,4 +17,13 @@
     <color name="yellow">#FEAE46</color>
     <color name="red">#FE0C01</color>
     <color name="blue">#7863FE</color>
+    <color name="line2">#160FAF</color>
+    <color name="line1">#9D93F1</color>
+    <color name="square">#EE3123</color>
+    <color name="stroke">#AFA2A4</color>
+    <color name="little_square1">#A966CC</color>
+    <color name="little_square2">#000000</color>
+    <color name="little_square3">#33B4E5</color>
+    <color name="little_square4">#97CA00</color>
+    <color name="little_square5">#FE8701</color>
 </resources>

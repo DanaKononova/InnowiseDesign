@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity4">
+
+    <View
+        android:id="@+id/bigSquare"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/square"
+        android:elevation="2dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.7" />
+
+    <View
+        android:id="@+id/littleSquare1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/little_square1"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bigSquare"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/bigSquare"
+        app:layout_constraintStart_toStartOf="@+id/bigSquare"
+        app:layout_constraintTop_toTopOf="@+id/bigSquare"
+        app:layout_constraintWidth_percent="0.13" />
+
+    <View
+        android:id="@+id/littleSquare2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/little_square2"
+        android:elevation="3dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/bigSquare"
+        app:layout_constraintTop_toTopOf="@+id/bigSquare"
+        app:layout_constraintWidth_percent="0.13" />
+
+    <View
+        android:id="@+id/littleSquare3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/little_square3"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bigSquare"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/bigSquare"
+        app:layout_constraintWidth_percent="0.13" />
+
+    <View
+        android:id="@+id/littleSquare4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/little_square4"
+        android:elevation="3dp"
+        app:layout_constraintTop_toTopOf="@+id/bigSquare"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/bigSquare"
+        app:layout_constraintWidth_percent="0.13" />
+
+    <View
+        android:id="@+id/littleSquare5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/little_square5"
+        android:elevation="4dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/bigSquare"
+        app:layout_constraintTop_toTopOf="@+id/bigSquare"
+        app:layout_constraintWidth_percent="0.07" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.002"
+        app:layout_constraintWidth_percent="0.7"
+        android:background="@color/line1"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bigSquare"
+        app:layout_constraintStart_toStartOf="@+id/bigSquare" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.002"
+        app:layout_constraintWidth_percent="0.7"
+        android:background="@color/line2"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="@+id/bigSquare"
+        app:layout_constraintStart_toStartOf="@+id/bigSquare" />
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.39"
+        app:layout_constraintWidth_percent="0.003"
+        android:background="@color/line1"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/bigSquare"
+        app:layout_constraintTop_toTopOf="@+id/bigSquare" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
