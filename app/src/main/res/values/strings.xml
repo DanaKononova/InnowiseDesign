@@ -10,4 +10,6 @@ It’s enabled through several means: dedicated navigation components, embedding
     <string name="likes">likes</string>
     <string name="comments">comments</string>
     <string name="views">views</string>
+    <string name="_6">+6</string>
+    <string name="follow">+ Follow</string>
 </resources>

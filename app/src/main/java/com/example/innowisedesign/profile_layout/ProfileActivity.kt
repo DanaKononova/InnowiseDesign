@@ -50,7 +50,6 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
     }
-
 }
 
 

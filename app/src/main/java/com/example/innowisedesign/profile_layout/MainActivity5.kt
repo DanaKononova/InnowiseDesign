@@ -1,28 +1,44 @@
 package com.example.innowisedesign.profile_layout
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.innowisedesign.R
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity5 : AppCompatActivity() {
+
+    private var handler = Looper.myLooper()?.let { Handler(it) }
+    private var profiles = mutableListOf<Profile>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main5)
 
+        val itemClick: (profile: Profile) -> Unit = { profile ->
+            val intent = Intent(this@MainActivity5, ProfileActivity::class.java)
+            intent.putExtra("profile", profile)
+            startActivity(intent)
+        }
+
         val recycler = findViewById<RecyclerView>(R.id.recyclerView)
-        val adapter = ProfilesAdapter()
+        val adapter = ProfilesAdapter(itemClick)
         recycler.adapter = adapter
         recycler.layoutManager = GridLayoutManager(this, 2)
 
-        val profiles = createProfiles()
+        profiles = createProfiles()
         adapter.setProfiles(profiles)
+
+        handler?.postDelayed(updateProfileRunnable(), 5000)
     }
 
-    fun createProfiles(): List<Profile> {
-        val profiles = mutableListOf<Profile>()
+    fun createProfiles(): MutableList<Profile> {
+        val profilesExample = mutableListOf<Profile>()
 
         val names = listOf("Dana", "John", "Emily", "Michael", "Sara", "David", "Olivia", "Daniel", "Sophia", "Matthew")
         val lastNames = listOf("Smith", "Johnson", "Brown", "Taylor", "Anderson", "Williams", "Jones", "Davis", "Wilson", "Clark")
@@ -45,6 +61,7 @@ class MainActivity5 : AppCompatActivity() {
 
         val random = Random()
 
+        var id = 1
         repeat(10) {
             val name = names[random.nextInt(names.size)]
             val lastName = lastNames[random.nextInt(lastNames.size)]
@@ -56,13 +73,41 @@ class MainActivity5 : AppCompatActivity() {
             val lastActivity = timeAgo[random.nextInt(timeAgo.size)]
             val color = random.nextInt(10) + 1
 
-            val profile = Profile(name, lastName, likes, comments, occupation, recommendation, views, lastActivity, color)
-            profiles.add(profile)
+            val profile = Profile(id++, name, lastName, likes, comments, occupation, recommendation, views, lastActivity, color)
+            profilesExample.add(profile)
         }
+        return profilesExample
+    }
+
+    fun updateProfiles(){
+        val maxLikes = 1000
+        val maxComments = 1000
+        val recommendations = listOf("1 / 10 users", "2 / 10 users", "3 / 10 users", "4 / 10 users", "5 / 10 users", "6 / 10 users", "7 / 10 users", "8 / 10 users", "9 / 10 users", "10 / 10 users")
+        val maxViews = 1000
+        val timeAgo = listOf("minute ago", "hour ago", "day ago", "week ago", "5 minutes ago", "recent", "active", "long time ago")
+
+        val random = Random()
 
         for (profile in profiles) {
-            println(profile)
+            profile.likes = random.nextInt(maxLikes).toString()
+            profile.comments = random.nextInt(maxComments).toString()
+            profile.recommendations = recommendations[random.nextInt(recommendations.size)]
+            profile.views = random.nextInt(maxViews).toString()
+            profile.lastActivity = timeAgo[random.nextInt(timeAgo.size)]
         }
-        return profiles
+    }
+
+    private fun updateProfileRunnable(): Runnable {
+        return object : Runnable {
+            override fun run() {
+                updateProfiles()
+                handler?.postDelayed(this, 5000)
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler?.removeCallbacks(updateProfileRunnable())
     }
 }

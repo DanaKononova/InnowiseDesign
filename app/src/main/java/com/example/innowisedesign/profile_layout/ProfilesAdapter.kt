@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.innowisedesign.R
 
-class ProfilesAdapter : RecyclerView.Adapter<ProfileViewHolder>() {
+class ProfilesAdapter(private val itemClick: (Profile) -> Unit) : RecyclerView.Adapter<ProfileViewHolder>() {
 
     private val profiles = mutableListOf<Profile>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_profiles, parent, false)
-        return ProfileViewHolder(view)
+        return ProfileViewHolder(view, itemClick)
     }
 
     override fun onBindViewHolder(holder: ProfileViewHolder, position: Int) {
