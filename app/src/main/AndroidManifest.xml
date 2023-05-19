@@ -13,13 +13,20 @@
         android:theme="@style/Theme.InnowiseDesign"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity4"
+            android:name=".compound_view.CompoundActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity4"
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
