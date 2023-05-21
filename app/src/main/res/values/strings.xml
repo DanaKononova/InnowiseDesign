@@ -6,6 +6,12 @@
 Navigation is the act of moving between screens of an app to complete tasks.
 It’s enabled through several means: dedicated navigation components, embedding navigation behavior into content, and platform affordances.</string>
     <string name="content2">Visual grouping: The first step to creating order in a layout is visual grouping. The first step to creating order in a layout is visual grouping. Elements in a layout that have similar content or functionality can be grouped together and separated from other elements using open space, typography, and dividers. \n Navigational directions \nBased on your app’s information architecture, a user can move in one of three navigational directions: Lateral navigation refers to moving between screens at the same level of hierarchy.\n Material Design comes designed with a built-in, baseline theme that can be used as-is, straight out of the proverbial box.</string>
+    <string name="back">back</string>
+    <string name="likes">likes</string>
+    <string name="comments">comments</string>
+    <string name="views">views</string>
+    <string name="_6">+6</string>
+    <string name="follow">+ Follow</string>
     <string name="title_activity_start_screen">StartScreen</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
