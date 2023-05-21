@@ -27,4 +27,6 @@ It’s enabled through several means: dedicated navigation components, embedding
     <string name="remove">Remove</string>
     <string name="add_alpha">Add Alpha</string>
     <string name="remove_alpha">Remove Alpha</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
 </resources>
