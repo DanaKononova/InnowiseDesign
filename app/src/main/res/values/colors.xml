@@ -35,4 +35,5 @@
     <color name="little_square3">#33B4E5</color>
     <color name="little_square4">#97CA00</color>
     <color name="little_square5">#FE8701</color>
+    <color name="progress_bar_color">#00A1A6</color>
 </resources>
