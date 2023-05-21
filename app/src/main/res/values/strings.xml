@@ -12,4 +12,19 @@ It’s enabled through several means: dedicated navigation components, embedding
     <string name="views">views</string>
     <string name="_6">+6</string>
     <string name="follow">+ Follow</string>
+    <string name="title_activity_start_screen">StartScreen</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="_1_screen">1 screen</string>
+    <string name="_2_screen">2 screen</string>
+    <string name="_3_screen">3 screen</string>
+    <string name="hide">Hide</string>
+    <string name="show">Show</string>
+    <string name="hidden">Hidden</string>
+    <string name="image">image</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="add_alpha">Add Alpha</string>
+    <string name="remove_alpha">Remove Alpha</string>
 </resources>
