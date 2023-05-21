@@ -1,49 +1,62 @@
 package com.example.innowisedesign.custom_progress_bar
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import android.view.animation.DecelerateInterpolator
-import android.widget.Button
+import androidx.core.content.ContextCompat
 import com.example.innowisedesign.R
 
 class CustomProgressBar(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
-    private val maxProgress = 100
-    private var currentProgress = 0
-    private val progressPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val button: Button
+    private val progressPaint: Paint = Paint()
+    private val paint: Paint = Paint()
+    private var progress: Int = 0
 
     init {
-        progressPaint.color = Color.BLUE
-        button = Button(context)
-        button.text = "increase Progress"
-        button.setOnClickListener {
-            animateProgress()
-        }
+        progressPaint.color = ContextCompat.getColor(context, R.color.progress_bar_color)
+        progressPaint.strokeWidth = 10f
+        progressPaint.style = Paint.Style.STROKE
+        paint.style = Paint.Style.STROKE
+        paint.strokeWidth = 40f
+        paint.color = ContextCompat.getColor(context, R.color.progress_bar_color)
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val width = width.toFloat()
-        val height = height.toFloat()
-        val progressWidth = (currentProgress / maxProgress.toFloat()) * width
-        canvas.drawRect(0f, 0f, progressWidth, height, progressPaint)
+
+        val centerX = width / 2f
+        val centerY = height / 2f
+        val radius = (Math.min(width, height) - paint.strokeWidth * 2) / 2f
+
+        canvas.drawCircle(centerX, centerY, radius, progressPaint)
+
+        paint.style = Paint.Style.STROKE
+        paint.strokeWidth = 40f
+        paint.color = ContextCompat.getColor(context, R.color.progress_bar_color)
+        val startAngle = -90f
+        val sweepAngle = 1f * progress
+        canvas.drawArc(centerX - radius, centerY - radius, centerX + radius, centerY + radius,
+            startAngle, sweepAngle, false, paint)
+
+        paint.textSize = 60f
+        paint.strokeWidth = 20f
+        paint.style = Paint.Style.FILL
+        paint.color = ContextCompat.getColor(context, R.color.black)
+
+        val text = progress.toString()
+        val textWidth = paint.measureText(text)
+        val textHeight = paint.fontMetrics.descent - paint.fontMetrics.ascent
+
+        val textX = centerX - textWidth / 2
+        val textY = centerY + textHeight / 2
+
+        canvas.drawText(text, textX, textY, paint)
     }
 
-    private fun animateProgress() {
-        val animator = ObjectAnimator.ofInt(this, "currentProgress", currentProgress, (0..maxProgress).random())
-        animator.duration = 1000
-        animator.interpolator = DecelerateInterpolator()
-        animator.start()
-    }
-
-    fun setCurrentProgress(progress: Int) {
-        currentProgress = progress
+    fun setProgress(value: Int) {
+        progress = value
         invalidate()
     }
 }
